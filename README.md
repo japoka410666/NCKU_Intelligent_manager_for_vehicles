@@ -1,1 +1,1 @@
-# NCKU_Intelligent_manager_for_vehicles
+# Intelligent_manager_for_vehicles
