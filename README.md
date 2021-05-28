@@ -12,4 +12,4 @@
 小於60%會出現`NotSure`，而當判定閉眼時間過長時便會使Himax-WEI-Plus亮起紅燈，代表發送警告訊號。
 ![image](https://user-images.githubusercontent.com/48234255/119983953-6d801200-bff3-11eb-95bd-7804cda27af4.png)
 
-三秒後會回恢復狀態，並重新開始監測駕駛。
+並在三秒後恢復狀態，繼續監測駕駛。
