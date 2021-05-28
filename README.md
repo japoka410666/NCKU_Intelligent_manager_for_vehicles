@@ -3,7 +3,7 @@
 在過去2020一年裡，疲勞駕駛發生事故比例約占總車禍事故約20%，居各類事故發生率第二名，我們希望能夠降低疲勞駕駛的事故發生，因此在此提案之中，我們希望運用到Himax WE-I Plus上的功能進行疲勞辨識，除此之外我們也希望能加入辨識車輛晃動，是否為使用者等感測功能，達到無鑰匙且防盜的效果，使功能更廣泛。
 ## 實現方法
 * 用himax_wei_plus上的加速度感測器監測震動，完成第一步驟。
-* 使用keras訓練一個簡易的CNN模型，轉成tflite_int8的形式，並部署在himax_wei_plus上，判斷當下駕駛的疲勞情形。
+* 使用keras訓練一個簡易的CNN模型，轉成tflite_int8的形式，並部署在himax_wei_plus上，判斷駕駛的疲勞情形。
 
 ## 操作方法
 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄到himax_wei_plus中，
