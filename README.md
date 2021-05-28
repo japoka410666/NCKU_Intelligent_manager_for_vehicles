@@ -1,2 +1,2 @@
 # Intelligent_manager_for_vehicles
-hello
+你好
