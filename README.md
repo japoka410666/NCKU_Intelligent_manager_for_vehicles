@@ -11,11 +11,11 @@
 
 若偵測到震動大於一定數值，便判斷為有人上車。
 
-![image](https://user-images.githubusercontent.com/48234255/119983894-5a6d4200-bff3-11eb-9b05-f588e759bbce.png)
+![image](https://user-images.githubusercontent.com/48234255/119994911-a4f4bb80-bfff-11eb-9b96-754bb3ee03db.png)
 
 而後開始進行疲勞駕駛判定，每0.5秒會回饋駕駛者當前狀態，括號內的數值為此次判定之可信度。
 小於60%會出現`NotSure`，而當判定閉眼時間過長時便會使Himax-WEI-Plus亮起紅燈，代表發送警告訊號。
 
-![image](https://user-images.githubusercontent.com/48234255/119983953-6d801200-bff3-11eb-95bd-7804cda27af4.png)
+![image](https://user-images.githubusercontent.com/48234255/119995059-cc4b8880-bfff-11eb-9936-c2ebf473744a.png)
 
 並在三秒後恢復狀態，繼續監測駕駛。
