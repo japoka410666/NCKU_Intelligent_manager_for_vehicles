@@ -4,7 +4,7 @@
 ## 實現方法
 * 用himax_wei_plus上的加速度感測器監測震動，完成第一步驟。
 * 使用keras訓練一個簡易的CNN模型，轉成tflite_int8的形式，並部署在himax_wei_plus上，判斷駕駛的疲勞情形。
-* 以I2C做為Aduino ESP8266模組和himax_wei_plus的溝通橋樑，當有非使用者進入車輛，himax_wei_plus會傳送訊息驅使ESP8266連接WIFI，並傳送訊息至使用者手機(Line notify)，來達到防盜警示功能。
+* 以I2C做為Aduino ESP8266模組和himax_wei_plus的溝通橋樑，當有非使用者進入車輛，himax_wei_plus會傳送訊息驅使ESP8266連接WIFI，並傳送訊息至使用者手機(Line notify)，來達到防盜警示功能。(目前尚未連接至開發版上)
 
 ## 操作方法
 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄到himax_wei_plus中，
