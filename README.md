@@ -12,6 +12,7 @@
 * 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄至WE-I Plus中。
 * 將`/WIFI/arc_contest_esp8266withpwd`燒錄至ESP8266。
 * 連接Himax WE-I Plus和ESP8266後即完成設置(接線圖如下)。
+
 ![image](https://user-images.githubusercontent.com/48234255/126736324-9d7d40e6-58cc-477b-a9ac-7a14d6ff3c4b.png)
 
 ## 操作方法
