@@ -18,7 +18,8 @@
 
 ![image](https://user-images.githubusercontent.com/48234255/120002038-feacb400-c006-11eb-83df-b383f1ceb5fb.png)
 
-並在三秒後恢復，繼續監測駕駛。
+在三秒後恢復，繼續監測駕駛。
+
 在過程中亦會辨識是否為已登錄的使用者，若判定為`Stranger`，則會提出警示，並以Line notify通知車主。
 ![image](https://user-images.githubusercontent.com/48234255/126733247-4dea2340-4e31-4608-937a-83d7d5975cfe.png)
 ![image](https://user-images.githubusercontent.com/48234255/126733267-e9edee98-0284-4165-877b-c8a38a9b9be8.png)
