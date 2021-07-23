@@ -1,10 +1,11 @@
 # Intelligent_manager_for_vehicles
 ## 介紹
-在過去2020一年裡，疲勞駕駛發生事故比例約占總車禍事故約20%，居各類事故發生率第二名，我們希望能夠降低疲勞駕駛的事故發生，因此在此提案之中，我們希望運用到Himax WE-I Plus上的功能進行疲勞辨識，除此之外我們也希望能加入辨識車輛晃動，是否為使用者等感測功能，達到無鑰匙且防盜的效果，使功能更廣泛。
+在過去2020一年裡，疲勞駕駛發生事故比例約占總車禍事故約20%，居各類事故發生率第二名，我們希望能夠降低疲勞駕駛的事故發生。
+因此在作品中，我們運用Himax WE-I Plus上Gsensor和快速AI運算的功能，以CNN模型進行疲勞辨識，並偵測是否為使用者，透過WIFI連接使用者手機中的LINE app，達到無鑰匙且防盜的效果。
 ## 實現方法
 * 用himax_wei_plus上的加速度感測器監測震動，完成第一步驟。
-* 使用keras訓練一個簡易的CNN模型，轉成tflite_int8的形式，並部署在himax_wei_plus上，判斷駕駛的疲勞情形。
-* 以I2C做為Aduino ESP8266模組和himax_wei_plus的溝通橋樑，當有非使用者進入車輛，himax_wei_plus會傳送訊息驅使ESP8266連接WIFI，並傳送訊息至使用者手機(Line notify)，來達到防盜警示功能。(目前尚未連接至開發版上)
+* 使用keras訓練一個CNN模型，轉成tflite_int8形式，並部署在himax_wei_plus上，進行駕駛疲勞辨識，並偵測是否為使用者。
+* 以GPIO做為Aduino ESP8266模組和Himax WE-I Plus的溝通橋樑，當有非使用者進入車輛，WE-I Plus會傳送訊息驅使ESP8266連接WIFI，並傳送訊息至使用者手機(Line notify)，來達到防盜警示功能。
 
 ## 操作方法
 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄到himax_wei_plus中，
@@ -20,3 +21,9 @@
 ![image](https://user-images.githubusercontent.com/48234255/120002038-feacb400-c006-11eb-83df-b383f1ceb5fb.png)
 
 並在三秒後恢復狀態，繼續監測駕駛。
+
+在過程中亦會辨識是否為已登錄的使用者，若判定為Stranger，則會提出警示，並以Line notify通知車主。
+
+![image](https://user-images.githubusercontent.com/48234255/126733247-4dea2340-4e31-4608-937a-83d7d5975cfe.png)
+![image](https://user-images.githubusercontent.com/48234255/126733267-e9edee98-0284-4165-877b-c8a38a9b9be8.png)
+
