@@ -7,8 +7,8 @@
 * 使用keras訓練一個CNN模型，轉成tflite_int8形式，部署至WE-I Plus，進行駕駛疲勞辨識，並偵測是否為使用者。
 * 以`GPIO`做為Aduino ESP8266模組和Himax WE-I Plus的溝通橋樑。當有非使用者進入車輛，WE-I Plus會驅使ESP8266連接WIFI，並傳送訊息至Line notify，達到防盜警示。
 ## 軟硬體設置
-* 用`/model_trainnig/Training_eyes_model.ipynb`訓練出`model.tflite`。
-* 將.tflite轉乘.h形式加入`/Intelligent_manager_for_vehicles/inc/`。
+* 利用`/model_trainnig/Training_eyes_model.ipynb`訓練出`model.tflite`。
+* 將.tflite轉成.h形式加入`/Intelligent_manager_for_vehicles/inc/`。
 * 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄至WE-I Plus中。
 * 將`/WIFI/arc_contest_esp8266withpwd`燒錄至ESP8266。
 * 連接Himax WE-I Plus和ESP8266後即完成設置(接線圖如下)。
