@@ -11,8 +11,8 @@
 ## 軟硬體設置
 * 利用`/model_trainnig/Training_eyes_model.ipynb`訓練出`model.tflite`。
 * 將.tflite轉成.h形式加入`/Intelligent_manager_for_vehicles/inc/`(即目錄中eyes_model_data.h)。
-* 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄至WE-I Plus中。
-* 將`/WIFI/arc_contest_esp8266withpwd.ino`燒錄至ESP8266。
+* 將`/Intelligent_manager_for_vehicles/ouput_gnu.image`利用Tera Term的XMODEM燒錄至WEI Plus中。
+* 將`/WIFI/arc_contest_esp8266withpwd.ino`燒錄至ESP8266 NODEMCU。
 * 連接Himax WE-I Plus和ESP8266後即完成設置(接線圖如下)。
 
 ![image](https://user-images.githubusercontent.com/48234255/126736324-9d7d40e6-58cc-477b-a9ac-7a14d6ff3c4b.png)
