@@ -22,11 +22,13 @@ constexpr int kNumChannels_2 = 1;
 
 constexpr int kMaxImageSize_2 = kNumCols_2 * kNumRows_2 * kNumChannels_2;
 
-constexpr int kCategoryCount_2 = 2;
+constexpr int kCategoryCount_2 = 3;
 
 /////////////////////
+constexpr int kunknownIndex = 2;
 constexpr int kopeneyeIndex =1;
 constexpr int kcloseeyeIndex = 0;
+
 
 //////////////////////
 

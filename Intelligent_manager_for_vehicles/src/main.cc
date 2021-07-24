@@ -16,6 +16,8 @@ limitations under the License.
 #include "main_functions.h"
 #include "hx_drv_tflm.h"
 #include "stdio.h"
+#include "synopsys_wei_gpio.h"
+
 volatile void delay_ms(uint32_t ms_input);
 
 #define accel_scale 10
@@ -29,22 +31,28 @@ typedef struct
 
 char string_buf[100] = "test\n";
 
+hx_drv_gpio_config_t hal_gpio_1;
+void GPIO_INIT(void);
+
 
 int main(int argc, char* argv[]) {
-  int result2=0;
-  int32_t count=0;
-  int32_t int_buf;
-  accel_type accel_x, accel_y, accel_z, accel_g;
+	int result2 = 0;
+	int32_t count = 0;
+	int32_t unknown_person_count = 0;
+	int32_t int_buf;
+	accel_type accel_x, accel_y, accel_z, accel_g;
 
-  hx_drv_uart_initial(UART_BR_115200);
+	hx_drv_uart_initial(UART_BR_115200);
+	GPIO_INIT();
+  
 
-    if (hx_drv_accelerometer_initial() != HX_DRV_LIB_PASS)
+	if (hx_drv_accelerometer_initial() != HX_DRV_LIB_PASS)
 		hx_drv_uart_print("Accelerometer Initialize Fail\n");
 	else
 		hx_drv_uart_print("Accelerometer Initialize Success\n");
 
-  setup();
-  while (true) 
+  	setup();
+  	while (true) 
     {
 
 
@@ -128,33 +136,52 @@ int main(int argc, char* argv[]) {
 		hx_drv_uart_print("\n\n");
 
 		delay_ms(100);
-    ///////////////////////////////////////////////
-    	while (g>= 1.5)
+    
+		//detect somebody boarding
+    	while (g >= 1.5)
     	{
 			hx_drv_led_off(HX_DRV_LED_RED);
 
-			result2=eyes_loop();	//call eyes model
-		
-			if(result2==0)			//eyes close
-			{
-			count++;
-			}
-			else if(result2==2)		//not susre
-			{
-			count = count;
-			}
-			else					//eyes open
-			{
-			count=0;
-			}
+			result2=eyes_loop();//call eyes model
 
-			//eyes closing time too long, then warning by the red LED
-			if (count>=7)
+			if(result2== 3 )
 			{
-			hx_drv_led_on(HX_DRV_LED_RED);
-			hx_drv_uart_print("WARNING: You are too tired now\n");
-			delay_ms(3000);
-			count =0;
+				count = 0;
+				hx_drv_uart_print("WARNING: Unkown Person\n");
+				unknown_person_count++;
+				if(unknown_person_count >= 5)
+				{
+				//********unknown person in your car**********//
+				//********return to line            **********//
+				hal_gpio_set(&hal_gpio_1, GPIO_PIN_SET);
+				///*******************************************//
+				}
+			}
+			else 
+			{
+				unknown_person_count = 0;
+				hal_gpio_set(&hal_gpio_1, GPIO_PIN_RESET);
+				if(result2 == 0)			//eyes close
+				{
+				count++;
+				}
+				else if(result2 == 2)		//not susre
+				{
+				count = count;
+				}
+				else						//eyes open
+				{
+				count = 0;
+				}
+
+				//if eyes closing time too long, warning by red LED
+				if (count >= 5)
+				{
+				hx_drv_led_on(HX_DRV_LED_RED);
+				hx_drv_uart_print("WARNING: You are too tired now\n");
+				delay_ms(1500);
+				count = 0;
+				}
 			}
 			delay_ms(500);
 			
@@ -169,3 +196,12 @@ volatile void delay_ms(uint32_t ms_input)
     for(i = 0; i < ms_input; i++)
         for(j = 0; j < 40000; j++);
 }
+
+void GPIO_INIT(void)
+{
+  if(hal_gpio_init(&hal_gpio_1, HX_DRV_PGPIO_1, HX_DRV_GPIO_OUTPUT, GPIO_PIN_RESET) == HAL_OK)
+    hx_drv_uart_print("GPIO2 Initialized: OK\n");
+  else
+    hx_drv_uart_print("GPIO2 Initialized: Error\n");
+}
+

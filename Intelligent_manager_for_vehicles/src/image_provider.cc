@@ -38,19 +38,5 @@ TfLiteStatus GetImage(tflite::ErrorReporter* error_reporter, int image_width,
   hx_drv_image_rescale((uint8_t *) g_pimg_config.raw_address,
                        g_pimg_config.img_width, g_pimg_config.img_height,
                        image_data, image_width, image_height);
-
-  //////get image successful, then do input data prerocessing///////
-  //int8_t * img_ptr;
-	//img_ptr = image_data;
-
-	for(int heigth_cnt = 0; heigth_cnt < image_height; heigth_cnt ++)
-	{
-		for(int width_cnt = 0; width_cnt < image_width; width_cnt ++)
-		{
-      *image_data=-(*image_data);
-		}
-	}
-  //////end of preprocessing //////
-
   return kTfLiteOk;
 }

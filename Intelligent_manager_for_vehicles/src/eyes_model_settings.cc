@@ -17,5 +17,5 @@ limitations under the License.
 
 // category of number recognition eyes open or close
 const char* kCategoryLabels2[kCategoryCount_2] = {
-    "C","O"
+    "C","O","U"
 };
