@@ -6,6 +6,8 @@
 * 用WE-I Plus上的加速度感測器監測震動，判斷是否有人上車。
 * 使用Keras訓練一個CNN模型，轉成tflite_int8形式，部署至WE-I Plus，進行駕駛疲勞辨識，並偵測是否為使用者。
 * 以`GPIO`做為Aduino ESP8266模組和Himax WE-I Plus的溝通橋樑。當有非使用者進入車輛，WE-I Plus會驅使ESP8266連接WIFI，並傳送訊息至Line notify，達到防盜警示。
+## 硬體架構
+![image](https://user-images.githubusercontent.com/48234255/126871588-c22f199f-6d63-41bb-889a-18ca2ae6a2c6.png)
 ## 軟硬體設置
 * 利用`/model_trainnig/Training_eyes_model.ipynb`訓練出`model.tflite`。
 * 將.tflite轉成.h形式加入`/Intelligent_manager_for_vehicles/inc/`(即目錄中eyes_model_data.h)。
