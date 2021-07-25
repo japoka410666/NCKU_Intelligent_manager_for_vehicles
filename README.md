@@ -1,4 +1,5 @@
 # Intelligent_manager_for_vehicles
+(https://github.com/japoka410666/NCKU_Intelligent_manager_for_vehicles)
 ## 介紹
   在過去2020一年裡，疲勞駕駛發生事故比例約占總車禍事故約20%，居各類事故發生率第二名，我們希望能夠降低疲勞駕駛的事故發生。
 因此在作品中，我們運用Himax WE-I Plus上G-Sensor和快速AI運算的功能，以CNN模型進行疲勞辨識，並偵測是否為使用者，透過WIFI連接的LINE app通知警示，達到無鑰匙且防盜的效果。
